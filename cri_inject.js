@@ -49,7 +49,10 @@ function export_to_csv() {
 }
 
 function add_export_csv_btn() {
-    let nav = document.getElementById('tab-kinds');
+    let nav = document.getElementById('userlist-table')
+        .parentNode
+        .parentNode
+        .getElementsByTagName('nav')[0];
     let export_csv_btn = document.createElement('a');
     ['btn', 'btn-outline-success', 'text-sm-center', 'nav-link', 'm-1', 'px-3', 'active'].map(
         (cls) => export_csv_btn.classList.add(cls)

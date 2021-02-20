@@ -7,7 +7,10 @@
   "author": "Bastien Germond <bastien.germond@epita.fr>",
 
   "content_scripts": [{
-        "matches": ["https://cri.epita.fr/group/*"],
+        "matches": [
+            "https://cri.epita.fr/group/*",
+            "https://cri.epita.fr/users/"
+        ],
         "js": ["cri_inject.js"]
   }],
 
