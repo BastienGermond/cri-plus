@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "CRI+",
+  "version": "0.0.1",
+
+  "description": "Add more features to cri.epita.fr",
+  "author": "Bastien Germond <bastien.germond@epita.fr>",
+
+  "content_scripts": [{
+        "matches": ["https://cri.epita.fr/group/*"],
+        "js": ["cri_inject.js"]
+  }],
+
+  "icons": {
+      "128": "/imgs/cri-plus.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ]
+}
