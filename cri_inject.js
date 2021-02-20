@@ -41,8 +41,6 @@ function export_to_csv() {
     let blob = new Blob([csv_str], { type: "text/csv;" });
     let blobUrl = URL.createObjectURL(blob);
 
-    return;
-
     let link = document.createElement('a');
     link.setAttribute('href', blobUrl);
     link.setAttribute('download', 'export.csv');
@@ -50,21 +48,30 @@ function export_to_csv() {
 
 }
 
-let nav = document.getElementById('tab-kinds');
+function add_export_csv_btn() {
+    let nav = document.getElementById('tab-kinds');
+    let export_csv_btn = document.createElement('a');
+    ['btn', 'btn-outline-success', 'text-sm-center', 'nav-link', 'm-1', 'px-3', 'active'].map(
+        (cls) => export_csv_btn.classList.add(cls)
+    );
+    export_csv_btn.innerHTML =
+        '<i class="fas fa-upload" style="margin-right: 5px"></i>Export to Csv'
+    ;
+    export_csv_btn.addEventListener("click", (event) => {
+        export_to_csv(); 
+    }, false);
+    nav.appendChild(export_csv_btn);
+}
 
-let export_csv_btn = document.createElement('a');
+function increase_checkbox_size() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+          input[type=checkbox] {
+            transform: scale(1.3);
+          }
+        `;
+    document.head.appendChild(style);
+}
 
-['btn', 'btn-outline-success', 'text-sm-center', 'nav-link', 'm-1', 'px-3', 'active'].map(
-    (cls) => export_csv_btn.classList.add(cls)
-);
-
-export_csv_btn.innerHTML =
-    '<i class="fas fa-upload" style="margin-right: 5px"></i>Export to Csv'
-;
-
-export_csv_btn.addEventListener("click", (event) => {
-    export_to_csv(); 
-}, false);
-
-nav.appendChild(export_csv_btn);
-
+add_export_csv_btn();
+increase_checkbox_size();
