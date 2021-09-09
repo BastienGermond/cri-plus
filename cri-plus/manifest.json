@@ -18,5 +18,7 @@
       "128": "/imgs/cri-plus.png"
   },
 
-  "permissions": []
+  "permissions": [
+    "activeTab"
+  ]
 }

@@ -1,7 +1,7 @@
 // Inject button Export to csv
 
 function export_to_csv() {
-    let usertable = document.getElementById('userlist-table').children[0];
+    let usertable = document.getElementById('t-userlist-table').children[0];
     let header_elt = usertable.getElementsByTagName('thead')[0];
     let body_elt = usertable.getElementsByTagName('tbody')[0];
 
@@ -49,10 +49,7 @@ function export_to_csv() {
 }
 
 function add_export_csv_btn() {
-    let nav = document.getElementById('userlist-table')
-        .parentNode
-        .parentNode
-        .getElementsByTagName('nav')[0];
+    let nav = document.getElementById('t-tab-kinds');
     let export_csv_btn = document.createElement('a');
     ['btn', 'btn-outline-success', 'text-sm-center', 'nav-link', 'm-1', 'px-3', 'active'].map(
         (cls) => export_csv_btn.classList.add(cls)
